@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Riak TS Demo</title>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="assets/images/basho_images/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- vegas bg -->
+    <link href="assets/js/vegas/jquery.vegas.min.css" rel="stylesheet">
+    <!-- owl carousel css -->
+    <link href="assets/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link href="assets/js/owl-carousel/owl.theme.css" rel="stylesheet">
+    <link href="assets/js/owl-carousel/owl.transitions.css" rel="stylesheet">
+    <!-- intro animations -->
+    <link href="assets/js/wow/animate.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link href="assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- lightbox -->
+    <link href="assets/js/lightbox/css/lightbox.css" rel="stylesheet">
+
+    <!-- styles for this template -->
+    <link href="assets/css/styles.css" rel="stylesheet">
+
+    <!-- place your extra custom styles in this file -->
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-default-background-img="assets/images/basho_images/sundialbackground.png" data-overlay="true" data-overlay-opacity="0.15">
+
+    <!-- Outer Container -->
+    <div id="outer-container">
+
+      <!-- Left Sidebar -->
+      <section id="left-sidebar">
+
+        <div class="logo">
+          <a href="#intro" class="link-scroll"><img src="assets/images/basho_images/basho-logo-white-horiz.png" alt="Basho"></a>
+        </div><!-- .logo -->
+
+        <!-- Menu Icon for smaller viewports -->
+        <div id="mobile-menu-icon" class="visible-xs" onClick="toggle_main_menu();"><span class="glyphicon glyphicon-th"></span></div>
+
+        <ul id="main-menu">
+<!--AB note: The button names below were changed, but all code remains Tyler's original from the Mesos demo-->
+          <li id="menu-item-overview" class="menu-item scroll"><a href="#overview">Overview</a></li>
+          <li id="menu-item-deploy" class="menu-item scroll"><a href="#install">Optimized Deployment</a></li>
+          <li id="menu-item-analyze" class="menu-item scroll"><a href="#cluster">Data	 Modeling</a></li>
+          <li id="menu-item-cache" class="menu-item scroll"><a href="#explore">Writing Data</a></li>
+          <li id="menu-item-scale" class="menu-item scroll"><a href="#scale">Reading Data</a></li>
+          <li id="menu-item-next" class="menu-item scroll"><a href="#more">Next Steps</a></li>
+        </ul><!-- #main-menu -->
+
+      </section><!-- #left-sidebar -->
+      <!-- end: Left Sidebar -->
+
+      <section id="main-content" class="clearfix">
+
+        <article id="intro" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/Bashomanbackground.png">
+          <div class="content-wrapper clearfix wow fadeInDown" data-wow-delay="0.3s">
+            <div class="col-sm-10 col-md-9 pull-right">
+
+                <section class="feature-text">
+                  <h1>Introducing Riak TS</h1>
+                  <p>Riak TS is a distributed NoSQL database and key/value store optimized for fast reads and writes of time series data. </br> It provides a rich set of feature like data co-location and range queries, which make queries faster and easier to run.</p>
+                  <p><a href="#overview" class="link-scroll btn btn-outline-inverse btn-lg">Seek Wisdom</a></p>
+                </section>
+
+            </div><!-- .col-sm-10 -->
+          </div><!-- .content-wrapper -->
+        </article><!-- .section-wrapper -->
+
+       <article id="overview" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/background.png">
+          <div class="content-wrapper clearfix"  style="padding-bottom:10em;">
+            <div class="col-sm-10 col-md-9 pull-right">
+
+                <h1 class="section-title">Overview</h1>
+                <h6>The Riak product line includes Riak KV, Riak S2, and Riak TS</h6>
+
+      
+                <p>Riak KV — Store unstructured data (JSON, XML, HTML, binaries)</p>
+                <p>Riak S2 — Large object storage (TB & PB)</p>
+                <p>Riak TS — Optimized for time series data</p>
+                <p>These Storage Instances are part of the Basho Data Platform.<p>
+                <p>
+                  <a href="" onclick="populate_and_open_modal(event, 'modal-content-1');" class="btn btn-outline-inverse btn-sm">Basho Data Platform</a>
+                  <a href="" onclick="populate_and_open_modal(event, 'modal-content-2');" class="btn btn-outline-inverse btn-sm">Riak TS</a>
+                </p>
+
+                <div class="content-to-populate-in-modal" id="modal-content-1">
+                  <h6>Basho Data Platform</h6>
+                  <p>Distributed, scalable, fault tolerant framework and resource manager,</p>
+                  <p>Includes:</p>
+                  <li> Core Services   (e.g. replication)</li>
+                  <li> Storage Instances (e.g. Riak TS)</li>
+                  <li>Service Instances    (e.g. Spark)</li>
+                  <p><img width="600px" data-img-src="assets/images/basho_images/bdp_with_ts.png" class="lazy"></p>
+                </div><!-- #modal-content-1 -->
+                <div class="content-to-populate-in-modal" id="modal-content-2">
+                  <h6>Riak TS</h6>
+                  <p>Time series data is unique, requiring:</p>
+                  <li>Data co-location</li>
+                  <li>High performance reads and writes</li>
+                  <li>Ability to retrieve data using range queries</li> 
+                  <p><img width="600px" data-img-src="assets/images/basho_images/riak_ts_optimizations.png" class="lazy"></p>
+                </div><!-- #modal-content-2 -->
+            </div><!-- .col-sm-10 -->
+          </div><!-- .content-wrapper -->
+        </article><!-- .section-wrapper -->
+
+       <article id="install" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/background.png">
+          <div class="content-wrapper clearfix"  style="padding-bottom:10em;">
+            <div class="col-sm-10 col-md-9 pull-right">
+
+                <h1 class="section-title">Optimized Data Store</h1>
+
+                <p class="feature-paragraph">Query large amounts of time series data efficiently</br>by storing related data next to each other.</p>
+                <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-3');" class="btn btn-outline-inverse btn-sm">Optimize</a></p>
+
+                <div class="content-to-populate-in-modal" id="modal-content-3">
+                  <h6>Optimized Data Store</h6>
+                  <p>Riak TS co-locates data to enable fast reads and writes.</p>
+                  <p><img width="600px" data-img-src="assets/images/basho_images/ts_ring.png" class="lazy" alt=""></p>
+                </div><!-- #modal-content-3 -->
+
+            </div><!-- .col-sm-10 -->
+          </div><!-- .content-wrapper -->
+        </article><!-- .section-wrapper -->
+
+       <article id="cluster" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/background.png">
+          <div class="content-wrapper clearfix"  style="padding-bottom:10em;">
+            <div class="col-sm-10 col-md-9 pull-right">
+
+                <h1 class="section-title">Data Modeling</h1>
+
+                <p class="feature-paragraph">Key/value NoSQL data model provides flexibility. </br> Developers can define their own schema using DLL. </p>
+                <p>
+<!--AB note: The Mesos demo had another button on this line, which I deleted. The button was named "create a cluster"-->
+                  <a href="" onclick="populate_and_open_modal(event, 'modal-content-5');" class="btn btn-outline-inverse btn-sm">Data Modeling</a>
+                </p>
+<!--AB notes: Content for the deleted "create a cluster" button went here-->
+                <div class="content-to-populate-in-modal" id="modal-content-5">
+                  <h6>Data Modeling</h6>
+                  <p>In order to query time series data, the data is stored in a schema. </br>The schema defines what data can be stored in a time series bucket and what type it has.
+                  <p>Queries can then be written against that schema and the Riak TS query system can validate and execute them.</p>
+                      <li>Measurements include temperature, conductance, salinity, and turbidity.</li>
+                      <li> Data for 1 week at 15 minute interval has been collected and loaded into Riak.</li>
+<!--AB notes: The four new gifs needd for this demo were added to the following folder. Gifs for the mesos demo remain in that fodler as well.-->
+                  <p><img data-img-src="assets/images/basho_images/gifs/BucketTypeCreation.gif" class="lazy" alt="Bucket Type Creation"></p>
+                </div><!-- #modal-content-5 -->
+            </div><!-- .col-sm-10 -->
+          </div><!-- .content-wrapper -->
+        </article><!-- .section-wrapper -->
+
+       <article id="explore" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/background.png">
+          <div class="content-wrapper clearfix"  style="padding-bottom:10em;">
+            <div class="col-sm-10 col-md-9 pull-right">
+
+                <h1 class="section-title">Writing Data</h1>
+
+                <p class="feature-paragraph">Riak TS allows you to write multiple rows of data at a time </br>by simply putting the data in a list.</p>
+                <p>
+                  <a href="" onclick="populate_and_open_modal(event, 'modal-content-6');" class="btn btn-outline-inverse btn-sm">Write Data</a>
+                </p>
+
+                <div class="content-to-populate-in-modal" id="modal-content-6">
+                  <h6>Write Data</h6>
+                  <p>Riak TS allows you to write multiple rows of data at a time by simply putting data in a list.</p>
+                   <p><img width="500px" data-img-src="assets/images/basho_images/Water_data.png" class="lazy"></p>
+                  <p><img data-img-src="assets/images/basho_images/Java_TS_Insertion.jpg" class="lazy" alt="Java TS Insertion"></p>
+                </div><!-- #modal-content-6 -->
+
+            </div><!-- .col-sm-10 -->
+          </div><!-- .content-wrapper -->
+        </article><!-- .section-wrapper -->
+
+        <article id="scale" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/background.png">
+           <div class="content-wrapper clearfix"  style="padding-bottom:10em;">
+             <div class="col-sm-10 col-md-9 pull-right">
+
+                 <h1 class="section-title">Reading Data</h1>
+                 <p class="feature-paragraph">Riak TS enables range queries, which enable you</br> to read data within a specific time period.</p>
+                <p>
+<!--AB note: The Mesos demo had another button on this line, which I deleted. The button was named "add more nodes"-->
+                  <a href="" onclick="populate_and_open_modal(event, 'modal-content-8');" class="btn btn-outline-inverse btn-sm">Read Data</a>
+                </p>
+
+<!--AB notes: Content for the deleted "add more nodes" button went here-->
+                 <div class="content-to-populate-in-modal" id="modal-content-8">
+                   <h6>Read Data</h6>
+                   <p>Now that we have written data to the Riak TS bucket, we can query it.</p>
+                   <p>Consider the WaterData table we created earlier:</p></p>
+                   <p><img data-img-src="assets/images/basho_images/gifs/SelectStar.gif" class="lazy" alt="Cluster Create"></p>
+                   <p>You can also select particular fields and extend the query beyond the primary keys.</p>
+                   <p><img data-img-src="assets/images/basho_images/gifs/SelectTemp.gif" class="lazy" alt="Cluster Create"></p>
+                 </div><!-- #modal-content-8 -->
+
+             </div><!-- .col-sm-10 -->
+           </div><!-- .content-wrapper -->
+         </article><!-- .section-wrapper -->
+
+       <article id="more" class="section-wrapper clearfix" data-custom-background-img="assets/images/basho_images/NextSteps.png">
+          <div class="content-wrapper clearfix"  style="padding-bottom:20em;">
+            <div class="col-sm-10 col-md-9 pull-left">
+
+                <h1 class="section-title" style="text-align: left; color: #373433; text-shadow: none;">Available, Scalable, Simple.</h1>
+
+                <p class="feature-paragraph" style="text-align: left; color:#373433; text-shadow: none;">Find clarity at  <a href="http://www.basho.com/riak-ts">www.basho.com/riak-ts</a>.
+                </p>
+            
+
+            </div><!-- .col-sm-10 -->
+          </div><!-- .content-wrapper -->
+        </article><!-- .section-wrapper -->
+
+      </section><!-- #main-content -->
+
+      <!-- Footer -->
+      <section id="footer">
+
+        <!-- Go to Top -->
+        <div id="go-to-top" onclick="scroll_to_top();"><span class="icon glyphicon glyphicon-chevron-up"></span></div>
+
+        <ul class="social-icons">
+          <li><a href="https://www.facebook.com/riakbasho" target="_blank" title="Facebook"><img src="assets/images/theme_images/social_icons/facebook.png" alt="Facebook"></a></li>
+          <li><a href="http://www.twitter.com/basho" target="_blank" title="Twitter"><img src="assets/images/theme_images/social_icons/twitter.png" alt="Twitter"></a></li>
+        </ul>
+
+        <!-- copyright text -->
+        <div class="footer-text-line">&copy; Basho Technologies</div>
+      </section>
+      <!-- end: Footer -->
+
+    </div><!-- #outer-container -->
+    <!-- end: Outer Container -->
+
+    <!-- Modal -->
+    <!-- DO NOT MOVE, EDIT OR REMOVE - this is needed in order for popup content to be populated in it -->
+    <div class="modal fade" id="common-modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <div class="modal-body clearfix">
+          </div><!-- .modal-body -->
+        </div><!-- .modal-content -->
+      </div><!-- .modal-dialog -->
+    </div><!-- .modal -->
+
+    <!-- Javascripts
+    ================================================== -->
+
+    <!-- Jquery and Bootstrap JS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Easing - for transitions and effects -->
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+
+    <!-- background image strech script -->
+    <script src="assets/js/vegas/jquery.vegas.min.js"></script>
+
+    <!-- detect mobile browsers -->
+    <script src="assets/js/detectmobilebrowser.js"></script>
+
+    <!-- detect scrolling -->
+    <script src="assets/js/jquery.scrollstop.min.js"></script>
+
+    <!-- owl carousel js -->
+    <script src="assets/js/owl-carousel/owl.carousel.min.js"></script>
+
+    <!-- lightbox js -->
+    <script src="assets/js/lightbox/js/lightbox.min.js"></script>
+
+    <!-- intro animations -->
+    <script src="assets/js/wow/wow.min.js"></script>
+
+    <!-- responsive videos -->
+    <script src="assets/js/jquery.fitvids.js"></script>
+
+    <!-- Custom functions for this theme -->
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/initialise-functions.js"></script>
+
+    <!-- IE9 form fields placeholder fix -->
+    <!--[if lt IE 9]>
+    <script>contact_form_IE9_placeholder_fix();</script>
+    <![endif]-->
+
+  </body>
+</html>
